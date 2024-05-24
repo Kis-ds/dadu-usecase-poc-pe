@@ -47,7 +47,7 @@ with tab1:
     with st.form(key='form1'):
         if all_yn == '회사별 검색':
             ### S3에서 결과파일 가져오기 ###
-            df_mzn = conn.read("kis-duda-usecase-poc-2/poc_mzn/pickle/Mezzanine_new.pkl", input_format="None", ttl=600)
+            df_mzn = conn.read("kis-duda-usecase-poc-2/poc_mzn/pickle/Mezzanine_new.pkl", input_format="csv", ttl=600)
             df_mzn['발행사'] = df_mzn['발행사'].str.replace('주식회사', '').str.replace('(주)', '').str.replace('㈜', '').str.replace(
                 '(','').str.replace(')', '').str.strip()
             corp_nm_list = df_mzn.sort_values('발행사')['발행사'].unique()
@@ -81,7 +81,7 @@ with tab1:
         
 with tab2:
     ### S3에서 결과파일 가져오기 ###
-    df_mzn = conn.read("kis-duda-usecase-poc-2/poc_mzn/pickle/Mezzanine_new.pkl", input_format="None", ttl=600)
+    df_mzn = conn.read("kis-duda-usecase-poc-2/poc_mzn/pickle/Mezzanine_new.pkl", input_format="csv", ttl=600)
     df_mzn = pe_func.cleansing_mzn_df(df_mzn)
 
     st.markdown('<h4 style = "color:#1B5886;">| 통합 현황 분석</h4>', unsafe_allow_html=True)
