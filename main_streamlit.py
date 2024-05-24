@@ -26,4 +26,4 @@ st.header('PB 뉴스 수집')
 
 ### S3에서 결과파일 가져오기 ###
 df_news = conn.read("kis-duda-usecase-poc-2/poc_mzn/news_ai/news_today_pd_multi_{}.csv".format(DT), input_format="csv", ttl=600)
-st.datarframe(df_news)
+st.dataframe(df_news)
