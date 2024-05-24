@@ -20,9 +20,8 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',
     'Accept-Encoding': '*', 'Connection': 'keep-alive'}
 
-conn = st.connection('s3', type=FilesConnection)
-
 st.set_page_config(layout='wide')
+conn = st.connection('s3', type=FilesConnection)
 cf.go_offline()
 dir_path = os.path.dirname(os.path.abspath(__file__))
 left_mg = 0
